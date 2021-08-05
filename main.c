@@ -24,7 +24,7 @@ void imprime_classe(char letra){
 int main () {
 // criação das variáveis
 
-int pos_trunfo;
+int pos_trunfo=-1;
 int velho=0;
 int pos_velho;
 float gordo=0;
@@ -61,6 +61,7 @@ for (int i=0; i< n; i++){
   scanf("%d", &deck[i].idade);
   scanf("%f", &deck[i].peso);
   fgets(nome,50, stdin);
+  if (nome[strlen(nome) -1] == '\n')
   nome[strlen(nome) -1] = '\0';
   strcpy(deck[i].nome, nome);
 }
@@ -139,6 +140,7 @@ printf("\n");
 // supertrunfo
 
 printf("Supertrunfo:\n");
+if (pos_trunfo != -1){
 printf("Nome: %s\n",deck[pos_trunfo].nome);
 printf("Idade máxima: %d\n",deck[pos_trunfo].idade);
 printf("Peso médio: %.2f\n", deck[pos_trunfo].peso);
@@ -148,6 +150,7 @@ printf("Supertrunfo? ");
 if (deck[pos_trunfo].trunfo == 'S')
   printf("sim\n");
 else printf("não\n");
+}
 printf("\n");
 // total de cartas
 
